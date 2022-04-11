@@ -17,104 +17,106 @@ import { RestaurantScreen } from './src/screens/RestaurantScreen/RestaurantScree
 import { FoodDetailScreen } from './src/screens/FoodDetailScreen/FoodDetailScreen';
 import { CartScreen } from './src/screens/CartScreen/CartScreen';
 import { LoginScreen } from './src/screens/LoginScreen/LoginScreen';
+import { OfferItem } from './src/lib_components/OfferItem/OfferItem';
+import { Offers } from './src/screens/Offers/Offers';
 
 
 const switchNavigator = createSwitchNavigator({
 
-    // landingStack: {
-    //   screen: createStackNavigator({
-    //     Landing: LandingScreen,
-    //     // search address screen
-    //   },{
-    //     defaultNavigationOptions: {
-    //       headerShown: false
-    //     }
-    //   }),
+  // landingStack: {
+  //   screen: createStackNavigator({
+  //     Landing: LandingScreen,
+  //     // search address screen
+  //   },{
+  //     defaultNavigationOptions: {
+  //       headerShown: false
+  //     }
+  //   }),
 
-    // },
+  // },
 
-    homeStack:  createBottomTabNavigator({
+  homeStack: createBottomTabNavigator({
 
-      // Home tab Icon
-      Home: {
-        screen: createStackNavigator({
-          HomePage: HomeScreen,
-          SearchPage: SearchScreen,
-          RestaurantPage: RestaurantScreen,
-          FoodDetailPage: FoodDetailScreen
-        }),
-        navigationOptions: {
-          tabBarIcon: ({ focused, tintColor}) => {
-            let icon = focused == true ? require('./src/images/home_icon.png') : require('./src/images/home_n_icon.png') 
-            return <Image source={icon} style={styles.tabIcon} />
-          }
-        }
-      },
-
-      // Home tab Icon
-      Offer: {
-        screen: createStackNavigator({
-          OfferPage: HomeScreen //
-        }),
-        navigationOptions: {
-          tabBarIcon: ({ focused, tintColor}) => {
-            let icon = focused == true ? require('./src/images/offer_icon.png') : require('./src/images/offer_n_icon.png') 
-            return <Image source={icon} style={styles.tabIcon} />
-          }
-        }
-      },
-
-       // Home tab Icon
-       Cart: {
-        screen: createStackNavigator({
-          CartPage: CartScreen,
-          LoginPage: LoginScreen
-        }
-        // , {
-        //   defaultNavigationOptions: {
-        //     headerShown: false
-        //   }
-        // }
-        ),
-        navigationOptions: {
-          tabBarIcon: ({ focused, tintColor}) => {
-            let icon = focused == true ? require('./src/images/cart_icon.png') : require('./src/images/cart_n_icon.png') 
-            return <Image source={icon} style={styles.tabIcon} />
-          }
-        }
-      },
-       // Home tab Icon
-       Account: {
-        screen: createStackNavigator({
-          AccountPage: HomeScreen,
-          LoginPage: LoginScreen
-        }),
-        navigationOptions: {
-          tabBarIcon: ({ focused, tintColor}) => {
-            let icon = focused == true ? require('./src/images/account_icon.png') : require('./src/images/account_n_icon.png') 
-            return <Image source={icon} style={styles.tabIcon} />
-          }
+    // Home tab Icon
+    Home: {
+      screen: createStackNavigator({
+        HomePage: HomeScreen,
+        SearchPage: SearchScreen,
+        RestaurantPage: RestaurantScreen,
+        FoodDetailPage: FoodDetailScreen
+      }),
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          let icon = focused == true ? require('./src/images/home_icon.png') : require('./src/images/home_n_icon.png')
+          return <Image source={icon} style={styles.tabIcon} />
         }
       }
+    },
 
-     })
+    // Home tab Icon
+    Offer: {
+      screen: createStackNavigator({
+        OfferPage: Offers //
+      }),
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          let icon = focused == true ? require('./src/images/offer_icon.png') : require('./src/images/offer_n_icon.png')
+          return <Image source={icon} style={styles.tabIcon} />
+        }
+      }
+    },
+
+    // Home tab Icon
+    Cart: {
+      screen: createStackNavigator({
+        CartPage: CartScreen,
+        LoginPage: LoginScreen
+      }
+        , {
+          defaultNavigationOptions: {
+            headerShown: false
+          }
+        }
+      ),
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          let icon = focused == true ? require('./src/images/cart_icon.png') : require('./src/images/cart_n_icon.png')
+          return <Image source={icon} style={styles.tabIcon} />
+        }
+      }
+    },
+    // Home tab Icon
+    Account: {
+      screen: createStackNavigator({
+        AccountPage: HomeScreen,
+        LoginPage: LoginScreen
+      }),
+      navigationOptions: {
+        tabBarIcon: ({ focused, tintColor }) => {
+          let icon = focused == true ? require('./src/images/account_icon.png') : require('./src/images/account_n_icon.png')
+          return <Image source={icon} style={styles.tabIcon} />
+        }
+      }
+    }
+
+  })
 
 });
 
 
 const AppNavigation = createAppContainer(switchNavigator);
- 
+
 export default function App() {
   return (
     // <Provider store={store}>
-      <AppNavigation />
+    <AppNavigation />
     // </Provider>
   );
 }
 
 const styles = StyleSheet.create({
-   tabIcon: {
-     width: 30,
-     height: 30
-   }
+  tabIcon: {
+    width: 30,
+    height: 30
+  }
 });
