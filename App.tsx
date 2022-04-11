@@ -56,7 +56,7 @@ const switchNavigator = createSwitchNavigator({
     // Home tab Icon
     Offer: {
       screen: createStackNavigator({
-        OfferPage: Offers //
+        Offers : Offers //
       }),
       navigationOptions: {
         tabBarIcon: ({ focused, tintColor }) => {
